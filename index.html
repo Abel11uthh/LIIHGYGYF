@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .completar {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <label for="tarea">Tarea</label>
+    <input type="text" id="tarea"> 
+    <button id="agregar">Agregar</button>
+    <ol id="lista"> </ol>
+
+    <script>
+        document.querySelector('#agregar').addEventListener('click', (event) => {
+            const tareaInput = document.querySelector('#tarea');
+            const tarea = tareaInput.value;
+            if (tarea) {
+                const lista = document.querySelector('#lista');
+                const nuevaTarea = document.createElement('li');
+                
+                const textoTarea = document.createElement('span');
+                textoTarea.textContent = tarea;
+                nuevaTarea.appendChild(textoTarea);
+
+
+
+                lista.appendChild(nuevaTarea);
+                tareaInput.value = ''; 
+            }
+        });
+    </script>
+</body>
+</html>
